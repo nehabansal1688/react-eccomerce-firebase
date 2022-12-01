@@ -7,6 +7,7 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { UserContext } from '../../contexts/user.context';
 import './navigation.styles.scss';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
+import CardIcon from '../../components/card-icon/card-icon.component';
 
 const Navigation = () => {
   //whenever we use context it makes the component rerun the complete code. doesnt mattter if the code has actualy changed or not. code will re run. re render depends upon change in any parameter.
@@ -36,6 +37,7 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
+          <CardIcon />
         </div>
       </div>
       <Outlet />
