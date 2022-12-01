@@ -4,8 +4,8 @@ import './card-icon.style.scss';
 import { CartContext } from '../../contexts/cart.context';
 
 const CartIcon = () => {
-  const { isCartOpen, setIsOpen } = useContext(CartContext);
-  const cartClickHandler = () => setIsOpen(!isCartOpen);
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const cartClickHandler = () => setIsCartOpen(!isCartOpen);
   return (
     <div className="cart-icon-container" onClick={cartClickHandler}>
       <SVG
