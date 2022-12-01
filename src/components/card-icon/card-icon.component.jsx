@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SVG from 'react-inlinesvg';
 import './card-icon.style.scss';
+import { CartContext } from '../../contexts/cart.context';
 
 const CartIcon = () => {
+  const { isCartOpen, setIsOpen } = useContext(CartContext);
+  const cartClickHandler = () => setIsOpen(!isCartOpen);
   return (
-    <div className="cart-icon-container">
+    <div className="cart-icon-container" onClick={cartClickHandler}>
       <SVG
         className="shopping-icon"
         src={require('../../assets/shopping-bag.svg')}
