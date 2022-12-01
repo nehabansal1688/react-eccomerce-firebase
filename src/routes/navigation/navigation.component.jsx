@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import SVG from 'react-inlinesvg';
 import { UserContext } from '../../contexts/user.context';
 import './navigation.styles.scss';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
@@ -22,7 +21,11 @@ const Navigation = () => {
     <Fragment>
       <div className="navigation">
         <Link className="logo-container" to="/">
-          logo
+          <SVG
+            className="shopping-icon"
+            src={require('../../assets/crown.svg')}
+            width={50}
+          />
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
