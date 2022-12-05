@@ -7,14 +7,13 @@ import './category.style.scss';
 const Category = () => {
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
-  debugger;
   const [products, setProducts] = useState(categoriesMap[category]);
   useEffect(() => {
     setProducts(categoriesMap[category]);
   }, [categoriesMap, category]);
 
   return (
-    <div className="category-container">
+    <div className="category-wrapper">
       {products &&
         products.map((product) => (
           <ProductCard key={product.id} product={product} />

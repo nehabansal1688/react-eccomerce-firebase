@@ -14,11 +14,10 @@ const Navigation = () => {
   //whenever we use context it makes the component rerun the complete code. doesnt mattter if the code has actualy changed or not. code will re run. re render depends upon change in any parameter.
 
   //if 100 component are using UserContext that mean code for those 100 components will run on any single component change  which can be a performance bottle neck
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   const signOutHandler = async () => {
     await signOutUser();
-    // setCurrentUser(null);
   };
   return (
     <Fragment>

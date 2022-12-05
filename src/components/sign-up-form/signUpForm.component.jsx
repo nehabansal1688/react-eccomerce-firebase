@@ -42,8 +42,6 @@ const SignUpForm = () => {
       // setCurrentUser(user);
 
       resetFormFields();
-
-      console.log(user);
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         alert('email is already in use');
