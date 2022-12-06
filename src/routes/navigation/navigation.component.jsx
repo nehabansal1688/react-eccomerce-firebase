@@ -4,11 +4,17 @@ import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import { UserContext } from '../../contexts/user.context';
-import './navigation.styles.scss';
+// import './navigation.styles.scss';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CardIcon from '../../components/card-icon/card-icon.component';
 import CartDropDown from '../../components/cart-dropdown/cart-dropdown.component';
 import { CartContext } from '../../contexts/cart.context';
+import {
+  NavigationContainer,
+  LogoContainer,
+  NavLink,
+  NavLinkContainer,
+} from './navigation.styles';
 
 const Navigation = () => {
   //whenever we use context it makes the component rerun the complete code. doesnt mattter if the code has actualy changed or not. code will re run. re render depends upon change in any parameter.
@@ -21,31 +27,27 @@ const Navigation = () => {
   };
   return (
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <SVG
             className="shopping-icon"
             src={require('../../assets/crown.svg')}
             width={50}
           />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
+        </LogoContainer>
+        <NavLinkContainer>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <NavLink as="span" onClick={signOutHandler}>
               Sign Out
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/authentication">
-              SIGN IN
-            </Link>
+            <NavLink to="/authentication">SIGN IN</NavLink>
           )}
           <CardIcon />
-        </div>
+        </NavLinkContainer>
         {isCartOpen && <CartDropDown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );

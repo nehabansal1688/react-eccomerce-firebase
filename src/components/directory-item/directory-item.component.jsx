@@ -1,10 +1,10 @@
 import React from 'react';
-import './category-item.styles.scss';
+import './directory-item.styles.scss';
 
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
-    <div className="directory-container">
+    <div className="directory-item-container">
       <div
         className="background-image"
         style={{

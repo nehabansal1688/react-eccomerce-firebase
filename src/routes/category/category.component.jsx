@@ -13,12 +13,15 @@ const Category = () => {
   }, [categoriesMap, category]);
 
   return (
-    <div className="category-wrapper">
-      {products &&
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-    </div>
+    <React.Fragment>
+      <h2 className="category-title">{category.toUpperCase()}</h2>
+      <div className="category-wrapper">
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </div>
+    </React.Fragment>
   );
 };
 
