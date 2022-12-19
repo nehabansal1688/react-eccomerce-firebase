@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
@@ -12,7 +12,7 @@ import {
 const CartDropDown = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
-  const gotoCheckoutHandler = () => navigate('/checkkout');
+  const gotoCheckoutHandler = useCallback(() => navigate('/checkkout'));
   return (
     <CartDropDownContainer>
       <CartItems>
